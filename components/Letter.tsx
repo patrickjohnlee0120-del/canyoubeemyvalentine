@@ -1,15 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
-import { playSound, startRomanticMusic } from '../utils/sounds';
+import { playSound } from '../utils/sounds';
 
 const Letter: React.FC = () => {
   const [typedText, setTypedText] = useState('');
-  const fullText = "My dearest, Angelica\n\nFrom the moment I met you, my world became softer, brighter, and happier. Will you make me the luckiest and hapiest person and be my Valentine?\n\nForever yours\nBebubooboobear";
+  const fullText = "My dearest, Angelica\n\nFrom the moment I met you, my world became brighter, and happier. Thank you for making me the luckiest and happiest person. I love you so much forever\n\nForever yours\nBebubooboobear";
 
   useEffect(() => {
-    // Start Bluestone Alley background music
-    const stopMusic = startRomanticMusic();
-
     let i = 0;
     const interval = setInterval(() => {
       setTypedText(fullText.slice(0, i));
@@ -22,7 +19,6 @@ const Letter: React.FC = () => {
 
     return () => {
       clearInterval(interval);
-      stopMusic();
     };
   }, []);
 
